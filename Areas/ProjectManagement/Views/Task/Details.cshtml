@@ -1,0 +1,38 @@
+﻿@model ProjectTask
+@{
+    ViewData["Title"] = "Task Details";
+}
+
+<h2>Task Details</h2>
+
+
+<div>
+    <h4>ProjectTask</h4>
+    <hr />
+      <dl class="row">
+
+            <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Title)</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.Title)</dd>
+
+            <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Description)</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.Description)</dd>
+
+            <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Project)</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.Project)</dd>
+
+
+            <!--Any other properties that you want to display from your project-->
+      </dl>
+</div>
+
+<div>
+
+    <a asp-action="Edit" asp-route-id="@Model?.ProjectTaskId">Edit</a> |
+    <a asp-action="Index" asp-route-projectId="@Model.ProjectId">Back to List</a>
+
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
